@@ -10,6 +10,7 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 
+
 //Create the app, define port and uri:
 
 const app = express();
@@ -33,11 +34,19 @@ conn.once('open', () => {
     console.log("Database connection successfull!!!");
 });
 
+//Require the routes:
+const todoRouter = require('./routes/todos');
+const userRouter = require('./routes/users');
+
+
+//allow the app to use the routes:
+app.use('/todos',todoRouter);
+app.use('/users',userRouter);
+
+
 
 
 //Start the server:
-
-
 app.listen(port, () =>{
     console.log(`Listening on port ${port}`)
 })
