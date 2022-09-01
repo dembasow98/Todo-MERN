@@ -1,16 +1,15 @@
-import { mongoose } from 'mongoose';
-
-const Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+const {Schema }= mongoose;
 
 
 const todoSchema = new Schema(
     {
-        'username': {Type:String, required: true, unique:true, trim:true, minLength:3},
-        'title':{Type: String, required:true},
-        'description':{Type:String, required:true},
-        'visibility':{Type:String, required:true},
-        'startDate':{Type: Date, required:true},
-        'endDate':{Type: Date, required:true},
+        'username': {type:String, required: true, unique:true, trim:true, minLength:3},
+        'title':{type: String, required:true},
+        'description':{type:String, required:true},
+        'visibility':{type:String, required:true},
+        'startDate':{type: Date, required:true},
+        'endDate':{type: Date, required:true},
     },
     {
         timestamps: true,

@@ -18,15 +18,10 @@ router.route('/').get((req, res)=>{
 router.route('/add').post((req, res) =>{ 
     const username = req.body.username;
     const profession = req.body.profession;
-    const createdAt = req.body.createdAt;
-    const updatedAt = req.body.updatedAt;
-
     //Create new user:
     const user = new User({
         username,
-        profession,
-        createdAt,
-        updatedAt
+        profession
     });
     //Add the user to the database:
 
@@ -51,8 +46,7 @@ router.route('/update/:id').post((req, res) => {
         .then(user =>{
             user.username = req.body.username;
             user.profession = req.body.profession;
-            user.createdAt = req.body.createdAt;
-            user.updatedAt = req.body.updatedAt;
+            
 
             //save the user:
             user.save()
